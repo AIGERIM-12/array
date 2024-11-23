@@ -1,24 +1,30 @@
-# Correct distances and weights
-distances = [3, 5, 7]  # Distances in km where boxes are buried
-weights = [200, 300, 213]  # Corresponding weights of the boxes
-
-# Main loop
+import os
+os.system("cls" if os.name=="nt" else "clear")
+import random
+boxes = [
+    {'distance': 2, 'weight': 200}, 
+    {'distance': 4, 'weight': 300},  
+    {'distance': 6, 'weight': 213}   
+]
 while True:
-    # Get input from the user for the distances
-    dist_1 = int(input("Enter distance for box 1 (km): "))
-    dist_2 = int(input("Enter distance for box 2 (km): "))
-    dist_3 = int(input("Enter distance for box 3 (km): "))
-    
-    # Check if the entered distances are correct
-    if [dist_1, dist_2, dist_3] == distances:
-        # Calculate total weight
-        total_weight = sum(weights)
-        
-        # Check if the total weight is correct
-        if total_weight == 713:
-            print("Boxes found successfully! Total weight:", total_weight, "kg")
-            break  # Exit the loop if everything is correct
-        else:
-            print("Total weight is incorrect. Try again.")
+    dist1 = int(input("Enter distance for box 1 (1-7): "))
+    dist2 = int(input("Enter distance for box 2 (1-7): "))
+    dist3 = int(input("Enter distance for box 3 (1-7): "))
+    total_weight = 0
+    found_boxes = 0  
+    for dist in [dist1, dist2, dist3]:
+        for box in boxes:
+            if box['distance'] == dist:
+                total_weight += box['weight']
+                found_boxes += 1
+                break
+    if found_boxes == 3 and total_weight == 713:
+        print("Cargo found! Total weight: 713 kg")
+        break
     else:
-        print("Wrong distances entered. Try again.")
+        print(f"Total weight: {total_weight} kg. Try again!")
+        for box in boxes:
+            box['distance'] = random.randint(1, 7)  
+            box['weight'] = random.randint(200, 250)
+        print("The boxes have moved to new locations. Try again!")
+
