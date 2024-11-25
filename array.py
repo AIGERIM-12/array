@@ -25,6 +25,5 @@ while True:
         print(f"Total weight: {total_weight} kg. Try again!")
         for box in boxes:
             box['distance'] = random.randint(1, 7)  
-            box['weight'] = random.randint(200, 250)
-        print("The boxes have moved to new locations. Try again!")
+        print("The boxes have moved to new locations.")
 
