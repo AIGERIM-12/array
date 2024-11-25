@@ -2,9 +2,9 @@ import os
 os.system("cls" if os.name=="nt" else "clear")
 import random
 boxes = [
-    {'distance': 2, 'weight': 200}, 
-    {'distance': 4, 'weight': 250},  
-    {'distance': 6, 'weight': 263}   
+    {'distance': 2, 'weight': 240}, 
+    {'distance': 4, 'weight': 240},  
+    {'distance': 6, 'weight': 233}   
 ]
 while True:
     dist1 = int(input("Enter distance for box 1 (1-7): "))
