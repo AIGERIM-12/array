@@ -18,7 +18,7 @@ while True:
                 total_weight += box['weight']
                 found_boxes += 1
                 break
-        if found_boxes == 3 and total_weight == 713:
+    if found_boxes == 3 and total_weight == 713:
         print("Cargo found! Total weight: 713 kg")
         break
     else:
