@@ -18,4 +18,11 @@ while True:
                 total_weight += box['weight']
                 found_boxes += 1
                 break
-    
+        if found_boxes == 3 and total_weight == 713:
+        print("Cargo found! Total weight: 713 kg")
+        break
+    else:
+        print(f"Total weight: {total_weight} kg. Try again!")
+        for box in boxes:
+            box['distance'] = random.randint(1, 7)  
+        print("The boxes have moved to new locations.")
